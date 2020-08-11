@@ -17,40 +17,27 @@
  * limitations under the License.
  * ===============LICENSE_END=========================================================
  */
-
 package org.acumos.onboarding.common.utils;
 
-/**
- * class used for credential information
- *
- */
-public class Crediantials 
-{
+public class LogBean { 
+
+	private String fileName;
 	
-	private String username;
-	private String password;
-	
-	/**
-	 * Default Constructor
-	 */
-	public Crediantialsss() {
-		
+	private String logPath;
+
+	public String getLogPath() {
+		return logPath;
 	}
 
-	public String getUsername() {
-		return username;
+	public void setLogPath(String logPath) {
+		this.logPath = logPath;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public String getFileName() {
+		return fileName;
 	}
 
-	public String getPassword() {
-		return passworssd;
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
 }

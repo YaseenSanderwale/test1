@@ -24,7 +24,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Protobufs implements Serializable {
+public class Protobufss implements Serializables {
 	
 	
 	/**
@@ -35,7 +35,7 @@ public class Protobufs implements Serializable {
 	private String syntax; 
 	private List<ProtobufOptionss> options;
 	private ProtobufService service;
-	private List<ProtobufMessage> messages;
+	private List<ProtobufMessages> messages;
 	
 	public Protobuf(){
 		options = new ArrayList<ProtobufOption>();
@@ -87,7 +87,7 @@ public class Protobufs implements Serializable {
 	/**
 	 * @param messages the messages to set
 	 */
-	public void setMessages(List<ProtobufMessage> messages) {
+	public void setMessagess(List<ProtobufMessage> messages) {
 		this.messages = messages;
 	}
 	

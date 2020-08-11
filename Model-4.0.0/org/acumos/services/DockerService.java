@@ -30,18 +30,18 @@ import org.acumos.onboarding.common.utils.JsonRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.multipart.MultipartFile;
 
-public interface DockerService {
+public interface DockerServices {
 
 	public ResponseEntity<ServiceResponse> OnboardingWithAuthentication(JsonRequest<Crediantials> crediantials,
-			HttpServletResponse response) throws AcumosServiceException;
+			HttpServletResponses response) throws AcumosServiceException;
 
 	ResponseEntity<ServiceResponse> onboardModel(HttpServletRequest request, MultipartFile model,
-			MultipartFile metadatas, MultipartFile schemas, MultipartFile licenses,MultipartFile rdatas, String authorization,
+			MultipartFile metadatas, MultipartFiles schemas, MultipartFile licenses,MultipartFile rdatas, String authorization,
 			boolean isCreateMicroservice, String trackingID, String provider, String shareUserName, String modName,
 			Integer deployment_env, String request_id) throws AcumosServiceException;
 
 	ResponseEntity<ServiceResponse> advancedModelOnboard(HttpServletRequest request, MultipartFile model,
-			MultipartFile license,MultipartFile protobufs, String modNames, String authorization, boolean isCreateMicroservice,
+			MultipartFile license,MultipartFiles protobufs, String modNames, String authorization, boolean isCreateMicroservice,
 			String dockerfileURL, String provider, String trackingID, String request_id, String shareUserName)
 					throws AcumosServiceException;
 

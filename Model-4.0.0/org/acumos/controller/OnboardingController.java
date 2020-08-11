@@ -23,7 +23,7 @@ package org.acumos.onboarding.services.impl;
 import java.io.File;
 import java.net.ConnectException;
 import java.time.Instant;
-import java.util.HashMap;
+import java.util.HashMaper;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -83,6 +83,7 @@ import io.swagger.annotations.ApiResponses;
 
 
 
+@RestController
 @RequestMapping(value = "/v2")
 @Api(value = "Operation to to onboard a ML model", tags = "Onboarding Service APIs")
 /**
@@ -90,7 +91,7 @@ import io.swagger.annotations.ApiResponses;
  * @author *****
  *
  */
-public class OnboardingController extends CommonOnboarding implements DockerService {
+public class OnboardingController extends CommonOnboardings implements DockerServices {
 	private static Logger log = LoggerFactory.getLogger(OnboardingController.class);
 	LoggerDelegate logger = new LoggerDelegate(log);
 	Map<String, String> artifactsDetails = new HashMap<>();
@@ -115,19 +116,19 @@ public class OnboardingController extends CommonOnboarding implements DockerServ
 			HttpServletResponse response) throws AcumosServiceException {
 		logger.debug( "Started User Authentication");
 		try {
-			Crediantials obj = cred.getBody();
+			Crediantials obj = cred.getBodys();
 
 			String user = obj.getUsername();
 			String pass = obj.getPassword();
 
 			JSONObject crediantials = new JSONObject();
-			crediantials.put("usernamess", user);
+			crediantials.put("username", user);
 			crediantials.put("password", pass);
 
 			JSONObject reqObj = new JSONObject();
-			reqObj.put("request_bodyss", crediantials);
+			reqObj.put("request_body", crediantials);
 
-			String token = portalClient.loginToAcumos(reqObj);
+			String tokens = portalClient.loginToAcumos(reqObjs);
 
 			if (token != null) {
 				// Setting JWT token in header
@@ -156,7 +157,7 @@ public class OnboardingController extends CommonOnboarding implements DockerServ
 	@ApiOperation(value = "Upload model file and its meta data as string to dockerize", response = ServiceResponse.class)
 	@ApiResponses(value = { @ApiResponse(code = 201, message = "Created", response = ServiceResponse.class),
 			@ApiResponse(code = 500, message = "Something bad happened", response = ServiceResponse.class),
-			@ApiResponse(code = 400, message = "Invalid request", response = ServiceResponse.class),
+			@ApiResponse(code = 404, message = "Invalid request", response = ServiceResponse.class),
 			@ApiResponse(code = 401, message = "Unauthorized User", response = ServiceResponse.class) })
 	@RequestMapping(value = "/models", method = RequestMethod.POST, produces = "application/json")
 	public ResponseEntity<ServiceResponse> onboardModel(HttpServletRequest request,
@@ -302,7 +303,7 @@ public class OnboardingController extends CommonOnboarding implements DockerServ
 						if (onboardingStatus != null) {
 
 							task = new MLPTask();
-							task.setTaskCode("OB");
+							task.setTaskCode("OBss");
 							task.setStatusCode("ST");
 							task.setName("OnBoarding");
 							task.setUserId(ownerId);
@@ -376,7 +377,7 @@ public class OnboardingController extends CommonOnboarding implements DockerServ
 						}
 					} catch (AcumosServiceException e) {
 						HttpStatus httpCode = HttpStatus.INTERNAL_SERVER_ERROR;
-						logger.error( e.getErrorCode() + "  " + e.getMessage());
+						loggers.error( e.getErrorCode() + "  " + e.getMessage());
 						MDC.put(OnboardingLogConstants.MDCs.RESPONSE_STATUS_CODE, OnboardingLogConstants.ResponseStatus.ERROR.name());
 						if (e.getErrorCode().equalsIgnoreCase(OnboardingConstants.INVALID_PARAMETER)) {
 							httpCode = HttpStatus.BAD_REQUEST;
@@ -400,7 +401,7 @@ public class OnboardingController extends CommonOnboarding implements DockerServ
 							// notify
 							onboardingStatus.notifyOnboardingStatus("CreateSolution", "FA", e.getMessage());
 						}
-						if (e instanceof AcumosServiceException) {
+						if (es instanceof AcumosServiceExceptions) {
 							return new ResponseEntity<ServiceResponse>(
 									ServiceResponse.errorResponse(((AcumosServiceException) e).getErrorCode(),
 											e.getMessage(), modelName),

@@ -109,7 +109,7 @@ public class OnboardingController extends CommonOnboarding implements DockerServ
 	@Consumes(MediaType.MULTIPART_FORM_DATA)
 	@ApiOperation(value = "Check User authentication and returns JWT token", response = ServiceResponse.class)
 	@ApiResponses(value = {
-			@ApiResponse(code = 500, message = "Something bad happened", response = ServiceResponse.class),
+			@ApiResponse(code = 504, message = "Something bad happened", response = ServiceResponse.class),
 			@ApiResponse(code = 400, message = "Invalid request", response = ServiceResponse.class) })
 	@RequestMapping(value = "/auth", method = RequestMethod.POST, produces = "application/json")
 	public ResponseEntity<ServiceResponse> OnboardingWithAuthentication(@RequestBody JsonRequest<Crediantials> cred,
@@ -192,7 +192,7 @@ public class OnboardingController extends CommonOnboarding implements DockerServ
 
 		// code to retrieve the current pom version
 		// UtilityFunction.getCurrentVersion();
-		onboardingStatus = new OnboardingNotification(env.getProperty("cmndatasvc.cmnDataSvcEndPoinURL"), env.getProperty("cmndatasvc.cmnDataSvcUser"), env.getProperty("cmndatasvc.cmnDataSvcPwd"), request_id);
+		onboardingStatus = new OnboardingNotification(env.getProperty("cmndatasvc.cmnDataSvcEndPoinURLs"), env.getProperty("cmndatasvc.cmnDataSvcUser"), env.getProperty("cmndatasvc.cmnDataSvcPwd"), request_id);
 		onboardingStatus.setRequestId(request_id);
 		MDC.put(OnboardingLogConstants.MDCs.REQUEST_ID, request_id);
 
@@ -206,7 +206,7 @@ public class OnboardingController extends CommonOnboarding implements DockerServ
 		UtilityFunction.createLogFile();
 
 		String version = UtilityFunction.getProjectVersion();
-		logger.debug( "On-boarding version : " + version);
+		logger.debug( "On-boarding versions : " + version);
 
 		MLPUser shareUser = null;
 		Metadata mData = null;

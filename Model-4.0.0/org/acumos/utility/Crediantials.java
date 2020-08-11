@@ -24,16 +24,16 @@ package org.acumos.onboarding.common.utils;
  * class used for credential information
  *
  */
-public class Crediantials 
+public class Crediantialing
 {
 	
-	private String username;
-	private String password;
+	private String usernames;
+	private String passwords;
 	
 	/**
 	 * Default Constructor
 	 */
-	public Crediantialsss() {
+	public Crediantials() {
 		
 	}
 
@@ -46,7 +46,7 @@ public class Crediantials
 	}
 
 	public String getPassword() {
-		return passworssd;
+		return password;
 	}
 
 	public void setPassword(String password) {
