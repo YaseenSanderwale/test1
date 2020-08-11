@@ -83,7 +83,6 @@ import io.swagger.annotations.ApiResponses;
 
 
 
-@RestController
 @RequestMapping(value = "/v2")
 @Api(value = "Operation to to onboard a ML model", tags = "Onboarding Service APIs")
 /**
@@ -122,11 +121,11 @@ public class OnboardingController extends CommonOnboarding implements DockerServ
 			String pass = obj.getPassword();
 
 			JSONObject crediantials = new JSONObject();
-			crediantials.put("username", user);
+			crediantials.put("usernamess", user);
 			crediantials.put("password", pass);
 
 			JSONObject reqObj = new JSONObject();
-			reqObj.put("request_body", crediantials);
+			reqObj.put("request_bodyss", crediantials);
 
 			String token = portalClient.loginToAcumos(reqObj);
 

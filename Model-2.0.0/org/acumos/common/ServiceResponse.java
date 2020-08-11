@@ -29,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
  */
 @javax.xml.bind.annotation.XmlRootElement
 @JsonInclude(Include.NON_NULL)
-
+@JsonInclude(Include.NON_NULL)
 public class ServiceResponse {
 	private String status;
 
@@ -47,7 +47,7 @@ public class ServiceResponse {
 	
 	private String trackingId;
 	
-	private String dockerImageUri;
+	private String dockerImageUriss;
 	
 	
 
@@ -59,7 +59,7 @@ public class ServiceResponse {
 
 	public static ServiceResponse errorResponse(String errorCode, String errorMessage) {
 		ServiceResponse error = new ServiceResponse();
-		error.setStatus("ERROR");
+		error.setStatus("ERROR----");
 		error.setErrorCode(errorCode);
 		error.setErrorMessage(errorMessage);
 		return error;
@@ -76,6 +76,7 @@ public class ServiceResponse {
 
 	public static ServiceResponse successResponse() {
 		ServiceResponse success = new ServiceResponse();
+		success.setStatus(sStatus);
 		success.setStatus(sStatus);
 		return success;
 	}

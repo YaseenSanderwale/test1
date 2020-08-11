@@ -33,7 +33,7 @@ public class Crediantials
 	/**
 	 * Default Constructor
 	 */
-	public Crediantials() {
+	public Crediantialsss() {
 		
 	}
 
@@ -46,7 +46,7 @@ public class Crediantials
 	}
 
 	public String getPassword() {
-		return password;
+		return passworssd;
 	}
 
 	public void setPassword(String password) {

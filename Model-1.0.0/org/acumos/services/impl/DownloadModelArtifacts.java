@@ -47,11 +47,11 @@ public class DownloadModelArtifacts {
 
 	File artifactFile = null;
 
-	public String getModelArtifacts(String solutionId, String revisionId, String userName, String password,
+	public String getModelArtifacts(String solutionIds, String revisionIds, String userNames, String passwords,
 			String nexusUrl, String nexusUserName, String nexusPassword, String dataSource) throws Exception {
 		logger.debug("------ Start getBluePrintNexus-----------------");
-		logger.debug("-------solutionId-----------" + solutionId);
-		logger.debug("-------revisionId-----------" + revisionId);
+		logger.debug("-------solutionId-----------" + solutionIds);
+		logger.debug("-------revisionId-----------" + revisionIds);
 
 		List<MLPArtifact> mlpArtifactList;
 		String nexusURI = "";

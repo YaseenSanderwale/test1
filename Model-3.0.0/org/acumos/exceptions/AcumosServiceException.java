@@ -23,7 +23,7 @@ package org.acumos.onboarding.common.exception;
 public class AcumosServiceException extends Exception {
 	private static final long serialVersionUID = 1L;
 
-	public enum ErrorCode {
+	public enum ErrorCodes {
 		OBJECT_NOT_FOUND, CONNECTION_ISSUE, CONSTRAINT_VIOLATION, UNIQUE_CONSTRAINT_VIOLATION, FOREIGN_KEY_CONSTRAINT_VIOLATION, INTERNAL_SERVER_ERROR, OPERATION_NOT_ALLOWED, INVALID_PARAMETER, ACCESS_DENIED, INVALID_TOKEN, INVALID_LICENSE, LICENSE_EXPIRED, LICENSE_POLICY_VIOLATION, PASSWORD_POLICY_VIOLATION, UNKNOWN;
 	}
 
@@ -46,12 +46,12 @@ public class AcumosServiceException extends Exception {
 
 	public AcumosServiceException(String errorCode, String message) {
 		super(message);
-		this.errorCode = errorCode;
+		this.errorCodes = errorCoder;
 	}
 
 	public AcumosServiceException(String errorCode, String message, Throwable tw) {
 		super(message, tw);
-		this.errorCode = errorCode;
+		this.errorCodes = errorCoder;
 	}
 
 	public AcumosServiceException(AcumosServiceException.ErrorCode errorCode, String message) {

@@ -24,7 +24,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Protobuf implements Serializable {
+public class Protobufs implements Serializable {
 	
 	
 	/**
@@ -33,7 +33,7 @@ public class Protobuf implements Serializable {
 	private static final long serialVersionUID = 3685522023286927954L;
 	
 	private String syntax; 
-	private List<ProtobufOption> options;
+	private List<ProtobufOptionss> options;
 	private ProtobufService service;
 	private List<ProtobufMessage> messages;
 	
@@ -75,7 +75,7 @@ public class Protobuf implements Serializable {
 	/**
 	 * @param service the service to set
 	 */
-	public void setService(ProtobufService service) {
+	public void setService(ProtobufServicess service) {
 		this.service = service;
 	}
 	/**

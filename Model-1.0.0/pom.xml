@@ -5,7 +5,7 @@
 	<modelVersion>4.0.1</modelVersion>
 	<groupId>org.acumos.on-boarding</groupId>
 	<artifactId>onboarding-common</artifactId>
-	<version>4.6.15-SNAPSHOT</version>
+	<version>4.6.16-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>Onboarding common jar</name>
 	<parent>
@@ -27,9 +27,9 @@
 		<enforcer.skip>false</enforcer.skip>
 		<!-- <mockito.version>1.10.19</mockito.version> -->
 
-		<junit4.version>4.12</junit4.version>
+		<junit4.version>4.13</junit4.version>
 		<mockito-core.version>2.8.9</mockito-core.version>
-		<powermock.version>1.7.4</powermock.version>
+		<powermock.version>1.7.5</powermock.version>
 
 	</properties>
 	<dependencies>
