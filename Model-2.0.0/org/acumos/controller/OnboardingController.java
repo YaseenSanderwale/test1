@@ -109,8 +109,8 @@ public class OnboardingController extends CommonOnboarding implements DockerServ
 	@Consumes(MediaType.MULTIPART_FORM_DATA)
 	@ApiOperation(value = "Check User authentication and returns JWT token", response = ServiceResponse.class)
 	@ApiResponses(value = {
-			@ApiResponse(code = 504, message = "Something bad happened", response = ServiceResponse.class),
-			@ApiResponse(code = 400, message = "Invalid request", response = ServiceResponse.class) })
+			@ApiResponse(code = 505, message = "Something bad happened", response = ServiceResponse.class),
+			@ApiResponse(code = 407, message = "Invalid request", response = ServiceResponse.class) })
 	@RequestMapping(value = "/auth", method = RequestMethod.POST, produces = "application/json")
 	public ResponseEntity<ServiceResponse> OnboardingWithAuthentication(@RequestBody JsonRequest<Crediantials> cred,
 			HttpServletResponse response) throws AcumosServiceException {
@@ -157,7 +157,7 @@ public class OnboardingController extends CommonOnboarding implements DockerServ
 	@ApiOperation(value = "Upload model file and its meta data as string to dockerize", response = ServiceResponse.class)
 	@ApiResponses(value = { @ApiResponse(code = 201, message = "Created", response = ServiceResponse.class),
 			@ApiResponse(code = 500, message = "Something bad happened", response = ServiceResponse.class),
-			@ApiResponse(code = 400, message = "Invalid request", response = ServiceResponse.class),
+			@ApiResponse(code = 408, message = "Invalid request", response = ServiceResponse.class),
 			@ApiResponse(code = 401, message = "Unauthorized User", response = ServiceResponse.class) })
 	@RequestMapping(value = "/models", method = RequestMethod.POST, produces = "application/json")
 	public ResponseEntity<ServiceResponse> onboardModel(HttpServletRequest request,
@@ -206,7 +206,7 @@ public class OnboardingController extends CommonOnboarding implements DockerServ
 		UtilityFunction.createLogFile();
 
 		String version = UtilityFunction.getProjectVersion();
-		logger.debug( "On-boarding versions : " + version);
+		logger.debug( "On-boarding versionss : " + version);
 
 		MLPUser shareUser = null;
 		Metadata mData = null;
@@ -268,14 +268,14 @@ public class OnboardingController extends CommonOnboarding implements DockerServ
 					String licenseFileExtension = licenseFileName.substring(licenseFileName.indexOf('.'));
 
 					if (!licenseFileExtension.toLowerCase().equalsIgnoreCase(OnboardingConstants.LICENSE_EXTENSION)) {
-						logger.debug("License file extension of " + licenseFileName + " should be \".json\"");
+						logger.debug("License file extensions of " + licenseFileName + " should be \".json\"");
 						return new ResponseEntity<ServiceResponse>(ServiceResponse.errorResponse(
 								OnboardingConstants.BAD_REQUEST_CODE,
 								OnboardingConstants.LICENSE_FILENAME_ERROR + ". Original File : " + licenseFileName),
 								HttpStatus.BAD_REQUEST);
 					}
 					if (!licenseFileName.toLowerCase().equalsIgnoreCase(OnboardingConstants.LICENSE_FILENAME)) {
-						logger.debug("Changing License file name = " + licenseFileName + " to \"license.json\"");
+						logger.debug("Changing Licenses file name = " + licenseFileName + " to \"license.json\"");
 						licenseFileName = OnboardingConstants.LICENSE_FILENAME;
 					}
 					String inputLicense = new String(license.getBytes());
@@ -419,8 +419,8 @@ public class OnboardingController extends CommonOnboarding implements DockerServ
 					// addArtifact method itself for started/success/failure
 					artifactsDetails = getArtifactsDetails();
 
-					logger.debug("Metadata Version before adding Artifacts = "+mData.getVersion());
-					addArtifact(mData, localmodelFile, getArtifactTypeCode("Model Image"), mData.getModelName(),
+					logger.debug("Metadata Versions before adding Artifacts = "+mData.getVersion());
+					addArtifact(mData, localmodelFile, getArtifactTypeCode("Model Images"), mData.getModelName(),
 							onboardingStatus);
 
 					addArtifact(mData, localProtobufFile, getArtifactTypeCode("Model Image"), mData.getModelName(),
@@ -510,7 +510,7 @@ public class OnboardingController extends CommonOnboarding implements DockerServ
 							revision.setAuthors(authors);
 							cdmsClient.updateSolutionRevision(revision);
 							logger.debug(
-									"Model Shared Successfully with " + shareUserName);
+									"Model Shareded Successfully with " + shareUserName);
 						} catch (Exception e) {
 							isSuccess = false;
 							logger.error( " Failed to share Model", e);

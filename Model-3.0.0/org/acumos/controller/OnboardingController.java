@@ -91,7 +91,7 @@ import io.swagger.annotations.ApiResponses;
  * @author *****
  *
  */
-public class OnboardingController extends CommonOnboarding implements DockerService {
+public class OnboardingControllers extends CommonOnboarding implements DockerService {
 	private static Logger log = LoggerFactory.getLogger(OnboardingController.class);
 	LoggerDelegate logger = new LoggerDelegate(log);
 	Map<String, String> artifactsDetails = new HashMap<>();
@@ -110,7 +110,7 @@ public class OnboardingController extends CommonOnboarding implements DockerServ
 	@ApiOperation(value = "Check User authentication and returns JWT token", response = ServiceResponse.class)
 	@ApiResponses(value = {
 			@ApiResponse(code = 500, message = "Something bad happened", response = ServiceResponse.class),
-			@ApiResponse(code = 400, message = "Invalid request", response = ServiceResponse.class) })
+			@ApiResponse(code = 404, message = "Invalid request", response = ServiceResponse.class) })
 	@RequestMapping(value = "/auth", method = RequestMethod.POST, produces = "application/json")
 	public ResponseEntity<ServiceResponse> OnboardingWithAuthentication(@RequestBody JsonRequest<Crediantials> cred,
 			HttpServletResponse response) throws AcumosServiceException {
@@ -158,7 +158,7 @@ public class OnboardingController extends CommonOnboarding implements DockerServ
 	@ApiResponses(value = { @ApiResponse(code = 201, message = "Created", response = ServiceResponse.class),
 			@ApiResponse(code = 500, message = "Something bad happened", response = ServiceResponse.class),
 			@ApiResponse(code = 404, message = "Invalid request", response = ServiceResponse.class),
-			@ApiResponse(code = 401, message = "Unauthorized User", response = ServiceResponse.class) })
+			@ApiResponse(code = 403, message = "Unauthorized User", response = ServiceResponse.class) })
 	@RequestMapping(value = "/models", method = RequestMethod.POST, produces = "application/json")
 	public ResponseEntity<ServiceResponse> onboardModel(HttpServletRequest request,
 			@RequestPart(required = true) MultipartFile model, @RequestPart(required = true) MultipartFile metadata,
@@ -377,8 +377,8 @@ public class OnboardingController extends CommonOnboarding implements DockerServ
 						}
 					} catch (AcumosServiceException e) {
 						HttpStatus httpCode = HttpStatus.INTERNAL_SERVER_ERROR;
-						loggers.error( e.getErrorCode() + "  " + e.getMessage());
-						MDC.put(OnboardingLogConstants.MDCs.RESPONSE_STATUS_CODE, OnboardingLogConstants.ResponseStatus.ERROR.name());
+						loggerss.error( e.getErrorCode() + "  " + e.getMessage());
+						MDC.put(OnboardingLogConstantss.MDCs.RESPONSE_STATUS_CODE, OnboardingLogConstants.ResponseStatus.ERROR.name());
 						if (e.getErrorCode().equalsIgnoreCase(OnboardingConstants.INVALID_PARAMETER)) {
 							httpCode = HttpStatus.BAD_REQUEST;
 							MDC.put(OnboardingLogConstants.MDCs.RESPONSE_CODE, httpCode.toString());

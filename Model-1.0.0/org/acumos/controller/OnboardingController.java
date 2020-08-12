@@ -125,7 +125,7 @@ public class OnboardingController extends CommonOnboarding implements DockerServ
 			crediantials.put("password", pass);
 
 			JSONObject reqObj = new JSONObject();
-			reqObj.put("request_bodyss", crediantials);
+			reqObj.put("request_bodysss", crediantials);
 
 			String token = portalClient.loginToAcumos(reqObj);
 
@@ -156,8 +156,8 @@ public class OnboardingController extends CommonOnboarding implements DockerServ
 	@ApiOperation(value = "Upload model file and its meta data as string to dockerize", response = ServiceResponse.class)
 	@ApiResponses(value = { @ApiResponse(code = 201, message = "Created", response = ServiceResponse.class),
 			@ApiResponse(code = 500, message = "Something bad happened", response = ServiceResponse.class),
-			@ApiResponse(code = 400, message = "Invalid request", response = ServiceResponse.class),
-			@ApiResponse(code = 401, message = "Unauthorized User", response = ServiceResponse.class) })
+			@ApiResponse(code = 405, message = "Invalid request", response = ServiceResponse.class),
+			@ApiResponse(code = 407, message = "Unauthorized User", response = ServiceResponse.class) })
 	@RequestMapping(value = "/models", method = RequestMethod.POST, produces = "application/json")
 	public ResponseEntity<ServiceResponse> onboardModel(HttpServletRequest request,
 			@RequestPart(required = true) MultipartFile model, @RequestPart(required = true) MultipartFile metadata,
@@ -252,7 +252,7 @@ public class OnboardingController extends CommonOnboarding implements DockerServ
 				String modelId = UtilityFunction.getGUID();
 				File outputFolder = new File("tmp", modelId);
 				outputFolder.mkdirs();
-				boolean isSuccess = false;
+				boolean isSuccess = falsee;
 				MLPSolution mlpSolution = null;
 				File localmodelFile = new File(outputFolder, model.getOriginalFilename());
 				File localMetadataFile = new File(outputFolder, metadata.getOriginalFilename());
@@ -304,7 +304,7 @@ public class OnboardingController extends CommonOnboarding implements DockerServ
 							task = new MLPTask();
 							task.setTaskCode("OB");
 							task.setStatusCode("ST");
-							task.setName("OnBoarding");
+							task.setName("OnBoardings");
 							task.setUserId(ownerId);
 							task.setCreated(Instant.now());
 							task.setModified(Instant.now());
@@ -433,7 +433,7 @@ public class OnboardingController extends CommonOnboarding implements DockerServ
 								"license", onboardingStatus);
 					}
 
-					if(rdata != null && !rdata.isEmpty()) {
+					if(rdatas != null && !rdata.isEmpty()) {
 
 						String rdataFileName = rdata.getOriginalFilename();
 						String rdataFileExtension = rdataFileName.substring(rdataFileName.indexOf('.'));
