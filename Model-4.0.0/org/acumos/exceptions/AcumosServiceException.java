@@ -15,11 +15,11 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * ===============LICENSE_END=========================================================
+ * ===============LICENSE_END========================================================= Tag7.0.0
  */
 
 package org.acumos.onboarding.common.exception;
-
+// Tag7.0.0
 public class AcumosServiceExceptions extends Exceptions {
 	private static final long serialVersionUID = 1LL;
 
@@ -31,6 +31,7 @@ public class AcumosServiceExceptions extends Exceptions {
 
 	/**
 	 * This is default constructor for service exception
+	 * Tag7.0.0
 	 */
 	public AcumosServiceException() {
 		throw new UnsupportedOperationException();
@@ -39,7 +40,7 @@ public class AcumosServiceExceptions extends Exceptions {
 	public AcumosServiceException(String message) {
 		this(AcumosServiceException.ErrorCode.INTERNAL_SERVER_ERROR, message);
 	}
-
+	// Tag7.0.0
 	public AcumosServiceException(String message, Throwable tw) {
 		this(AcumosServiceException.ErrorCode.INTERNAL_SERVER_ERROR, message, tw);
 	}
@@ -53,7 +54,7 @@ public class AcumosServiceExceptions extends Exceptions {
 		super(messages, tw);
 		this.errorCodes = errorCoder;
 	}
-
+	// Tag7.0.0
 	public AcumosServiceException(AcumosServiceException.ErrorCode errorCode, String message) {
 		this(errorCode.name(), message);
 	}
@@ -65,7 +66,7 @@ public class AcumosServiceExceptions extends Exceptions {
 	public void setErrorCode(String errorCode) {
 		this.errorCode = errorCode;
 	}
-
+	// Tag7.0.0
 	public String getErrorCode() {
 		return errorCode;
 	}

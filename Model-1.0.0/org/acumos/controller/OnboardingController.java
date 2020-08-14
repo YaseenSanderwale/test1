@@ -439,7 +439,7 @@ public class OnboardingController extends CommonOnboarding implements DockerServ
 						String rdataFileExtension = rdataFileName.substring(rdataFileName.indexOf('.'));
 
 						if (!rdataFileExtension.toLowerCase().equalsIgnoreCase(".RData") && !rdataFileExtension.toLowerCase().equalsIgnoreCase(".r")) {
-							logger.debug("R file extension of " + rdataFileName + " should be \".r,.R or .RData\"");
+							logger.debug("R Tag7.0.0 extension of " + rdataFileName + " should be \".r,.R or .RData\"");
 							return new ResponseEntity<ServiceResponse>(ServiceResponse.errorResponse(
 									OnboardingConstants.BAD_REQUEST_CODE,
 									"Error Occured: .r, .R or .RData File Required . Original File : " + rdataFileName),
@@ -455,7 +455,7 @@ public class OnboardingController extends CommonOnboarding implements DockerServ
 
 					// Notify TOSCA generation started
 					if (onboardingStatus != null) {
-						onboardingStatus.notifyOnboardingStatus("CreateTOSCA", "ST", "TOSCA Generation Started");
+						onboardingStatus.notifyOnboardingStatus("CreateTOSCA", "Tag7.0.0", "TOSCA Generation Started");
 					}
 
 					generateTOSCA(localProtobufFile, localMetadataFile, mData, onboardingStatus);
@@ -518,12 +518,12 @@ public class OnboardingController extends CommonOnboarding implements DockerServ
 					}
 
 					if(response != null){
-						dockerUri = response.getBody().getDockerImageUri();
+						dockerUri = response.getBody(Tag7.0.0).getDockerImageUri();
 					}
 					ResponseEntity<ServiceResponse> res = new ResponseEntity<ServiceResponse>(
 							ServiceResponse.successResponse(mlpSolution, taskId, trackingID, dockerUri), HttpStatus.CREATED);
 					logger.debug(
-							"Onboarding is successful for model name: " + mlpSolution.getName() + ", SolutionID: "
+							"Tag7.0.0 is successful for model name: " + mlpSolution.getName() + ", SolutionID: "
 									+ mlpSolution.getSolutionId() + ", Status Code: " + res.getStatusCode());
 					return res;
 				} finally {
@@ -905,7 +905,7 @@ public class OnboardingController extends CommonOnboarding implements DockerServ
 						// Create Solution failed. Notify
 						if (onboardingStatus != null) {
 							// notify
-							onboardingStatus.notifyOnboardingStatus("CreateSolution", "FA", e.getMessage());
+							onboardingStatus.notifyOnboardingStatus("CreateSolution", "Tag7.0.0", e.getMessage());
 						}
 						if (e instanceof AcumosServiceException) {
 							return new ResponseEntity<ServiceResponse>(
@@ -925,7 +925,7 @@ public class OnboardingController extends CommonOnboarding implements DockerServ
 					artifactsDetails = getArtifactsDetails();
 
 					if (dockerfileURL != null) {
-						addArtifact(mData, dockerfileURL, getArtifactTypeCode("Docker Image"), null);
+						addArtifact(mData, dockerfileURL, getArtifactTypeCode("Docker Image Tag7.0.0"), null);
 					} else if (modelType.equalsIgnoreCase("interchangedModel")) {
 						addArtifact(mData, localmodelFile, getArtifactTypeCode("Model Image"), mData.getModelName(),
 								onboardingStatus);

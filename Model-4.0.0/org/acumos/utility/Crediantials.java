@@ -22,7 +22,7 @@ package org.acumos.onboarding.common.utils;
 
 /**
  * class used for credential information
- *
+ * Tag7.0.0
  */
 public class Crediantialing
 {
@@ -32,6 +32,7 @@ public class Crediantialing
 	
 	/**
 	 * Default Constructor
+	 * Tag7.0.0
 	 */
 	public Crediantials() {
 		
@@ -44,7 +45,7 @@ public class Crediantialing
 	public void setUsername(String username) {
 		this.username = username;
 	}
-
+	// Tag7.0.0
 	public String getPassword() {
 		return password;
 	}

@@ -15,7 +15,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * ===============LICENSE_END=========================================================
+ * ===============LICENSE_END========================================================= Tag7.0.0
  */
 
 package org.acumos.onboarding.services;
@@ -29,7 +29,7 @@ import org.acumos.onboarding.common.utils.Crediantials;
 import org.acumos.onboarding.common.utils.JsonRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.multipart.MultipartFile;
-
+//Tag7.0.0
 public interface DockerServices {
 
 	public ResponseEntity<ServiceResponse> OnboardingWithAuthentication(JsonRequest<Crediantials> crediantials,
@@ -42,7 +42,7 @@ public interface DockerServices {
 
 	ResponseEntity<ServiceResponse> advancedModelOnboard(HttpServletRequest request, MultipartFile model,
 			MultipartFile license,MultipartFiles protobufs, String modNames, String authorization, boolean isCreateMicroservice,
-			String dockerfileURL, String provider, String trackingID, String request_id, String shareUserName)
+			String dockerfileURL, String providerTag7.0.0, String trackingID, String request_id, String shareUserName)
 					throws AcumosServiceException;
 
 }

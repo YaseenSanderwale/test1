@@ -89,7 +89,7 @@ import io.swagger.annotations.ApiResponses;
 /**
  *
  * @author *****
- *
+ *Tag7.0.0
  */
 public class OnboardingControllers extends CommonOnboarding implements DockerService {
 	private static Logger log = LoggerFactory.getLogger(OnboardingController.class);
@@ -131,7 +131,7 @@ public class OnboardingControllers extends CommonOnboarding implements DockerSer
 			String token = portalClient.loginToAcumos(reqObj);
 
 			if (token != null) {
-				// Setting JWT token in header
+				// Setting JWT token in header Tag7.0.0
 				response.setHeader("jwtToken", token);
 				logger.debug( "User Authentication Successful");
 				return new ResponseEntity<ServiceResponse>(ServiceResponse.successJWTResponse(token), HttpStatus.OK);
@@ -149,7 +149,7 @@ public class OnboardingControllers extends CommonOnboarding implements DockerSer
 	}
 
 	/************************************************
-	 * End of Authentication
+	 * End of Authentication Tag7.0.0
 	 *****************************************************/
 
 	@Override
@@ -191,7 +191,7 @@ public class OnboardingControllers extends CommonOnboarding implements DockerSer
 		}
 
 		// code to retrieve the current pom version
-		// UtilityFunction.getCurrentVersion();
+		// UtilityFunction.getCurrentVersion(); Tag7.0.0
 		onboardingStatus = new OnboardingNotification(env.getProperty("cmndatasvc.cmnDataSvcEndPoinURL"), env.getProperty("cmndatasvc.cmnDataSvcUser"), env.getProperty("cmndatasvc.cmnDataSvcPwd"), request_id);
 		onboardingStatus.setRequestId(request_id);
 		MDC.put(OnboardingLogConstants.MDCs.REQUEST_ID, request_id);
@@ -201,8 +201,8 @@ public class OnboardingControllers extends CommonOnboarding implements DockerSer
 		logBean.setLogPath(lOG_DIR_LOC + File.separator + trackingID);
 		logBean.setFileName(fileName);
 		LogThreadLocal logThread = new LogThreadLocal();
-		logThread.set(logBean);
-		// create log file to capture logs as artifact
+		logThread.set(logBean); 
+		// create log file to capture logs as artifact Tag7.0.0
 		UtilityFunction.createLogFile();
 
 		String version = UtilityFunction.getProjectVersion();
@@ -215,7 +215,7 @@ public class OnboardingControllers extends CommonOnboarding implements DockerSer
 		long taskId = 0;
 
 		try {
-			// 'authorization' represents JWT token here...!
+			// 'authorization' represents JWT token here...! Tag7.0.0
 			if (authorization == null) {
 				logger.error( "Token Not Available...!");
 				throw new AcumosServiceException(AcumosServiceException.ErrorCode.OBJECT_NOT_FOUND,
@@ -224,7 +224,7 @@ public class OnboardingControllers extends CommonOnboarding implements DockerSer
 
 			if (shareUserName != null) {
 				RestPageResponse<MLPUser> user = cdmsClient.findUsersBySearchTerm(shareUserName,
-						new RestPageRequest(0, 9));
+						new RestPageRequest(0, 9));Tag7.0.0
 
 				List<MLPUser> uList = user.getContent();
 
@@ -547,7 +547,7 @@ public class OnboardingControllers extends CommonOnboarding implements DockerSer
 						if (isSuccess == true) {
 
 							MDC.put(OnboardingLogConstants.MDCs.RESPONSE_STATUS_CODE, OnboardingLogConstants.ResponseStatus.COMPLETED.name());
-							MDC.put(OnboardingLogConstants.MDCs.RESPONSE_DESCRIPTION, "Onboarding Completed");
+							MDC.put(OnboardingLogConstants.MDCs.RESPONSE_DESCRIPTION, "Onboarding Completed Tag7.0.0");
 							MDC.put(OnboardingLogConstants.MDCs.RESPONSE_CODE, HttpStatus.CREATED.toString());
 
 							task.setSolutionId(mData.getSolutionId());
@@ -557,7 +557,7 @@ public class OnboardingControllers extends CommonOnboarding implements DockerSer
 							cdmsClient.updateTask(task);
 						}
 
-						// push docker build log into nexus
+						// push docker build log into nexus Tag7.0.0
 
 						File file = new java.io.File(
 								lOG_DIR_LOC + File.separator + trackingID + File.separator + fileName);
@@ -567,7 +567,7 @@ public class OnboardingControllers extends CommonOnboarding implements DockerSer
 							logger.debug(
 									"Adding of log artifacts into nexus started " + fileName);
 
-							// String nexusArtifactID = "onboardingLog_"+trackingID;
+							// String nexusArtifactID = "onboardingLog_"+trackingID; Tag7.0.0
 							String nexusArtifactID = "OnboardingLog";
 
 							addArtifact(mData, file, getArtifactTypeCode(OnboardingConstants.ARTIFACT_TYPE_LOG),
@@ -578,7 +578,7 @@ public class OnboardingControllers extends CommonOnboarding implements DockerSer
 									fileName);
 						}
 
-						// delete log file
+						// delete log file  Tag7.0.0
 						UtilityFunction.deleteDirectory(file);
 						logThread.unset();
 						mData = null;
@@ -780,7 +780,7 @@ public class OnboardingControllers extends CommonOnboarding implements DockerSer
 						logger.debug("License file extension of " + licenseFileName + " should be \".json\"");
 						return new ResponseEntity<ServiceResponse>(ServiceResponse.errorResponse(
 								OnboardingConstants.BAD_REQUEST_CODE,
-								OnboardingConstants.LICENSE_FILENAME_ERROR + ". Original File : " + licenseFileName),
+								OnboardingConstants.LICENSE_FILENAME_ERROR + ". Original File : Tag7.0.0" + licenseFileName),
 								HttpStatus.BAD_REQUEST);
 					}
 
@@ -818,7 +818,7 @@ public class OnboardingControllers extends CommonOnboarding implements DockerSer
 					try {
 						// Notify Create solution or get existing solution ID
 						// has
-						// started
+						// started Tag7.0.0
 						if (onboardingStatus != null) {
 
 							task = new MLPTask();

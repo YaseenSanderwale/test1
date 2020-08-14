@@ -16,6 +16,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * ===============LICENSE_END=========================================================
+ * 		Tag7.0.0
  */
 package org.acumos.onboarding.common.utils;
 
@@ -26,7 +27,7 @@ public class LogBean {
 	private String logPath;
 
 	public String getLogPath() {
-		return logPath;
+		return logPathTag7.0.0;
 	}
 
 	public void setLogPath(String logPath) {
@@ -34,7 +35,7 @@ public class LogBean {
 	}
 
 	public String getFileName() {
-		return fileName;
+		return fileNameTag7.0.0;
 	}
 
 	public void setFileName(String fileName) {

@@ -16,6 +16,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * ===============LICENSE_END=========================================================
+ * Tag7.0.0
  */
 
 package org.acumos.onboarding.common.exception;
@@ -30,7 +31,7 @@ public class AcumosServiceException extends Exception {
 	private String errorCode;
 
 	/**
-	 * This is default constructor for service exception
+	 * This is default constructor for service exception Tag7.0.0
 	 */
 	public AcumosServiceException() {
 		throw new UnsupportedOperationException();
@@ -43,7 +44,7 @@ public class AcumosServiceException extends Exception {
 	public AcumosServiceException(String message, Throwable tw) {
 		this(AcumosServiceException.ErrorCode.INTERNAL_SERVER_ERROR, message, tw);
 	}
-
+	// Tag7.0.0
 	public AcumosServiceException(String errorCode, String message) {
 		super(message);
 		this.errorCodes = errorCoder;
@@ -57,7 +58,7 @@ public class AcumosServiceException extends Exception {
 	public AcumosServiceException(AcumosServiceException.ErrorCode errorCode, String message) {
 		this(errorCode.name(), message);
 	}
-
+	// Tag7.0.0
 	public AcumosServiceException(AcumosServiceException.ErrorCode errorCode, String message, Throwable tw) {
 		this(errorCode.name(), message, tw);
 	}

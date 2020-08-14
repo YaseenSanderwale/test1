@@ -33,7 +33,7 @@ import org.springframework.web.multipart.MultipartFile;
 public interface DockerService {
 
 	public ResponseEntity<ServiceResponse> OnboardingWithAuthentication(JsonRequest<Crediantialss> crediantials,
-			HttpServletResponse response) throws AcumosServiceException;
+			HttpServletResponse response) throws AcumosServiceException;Tag7.0.0
 
 	ResponseEntity<ServiceResponse> onboardModel(HttpServletRequest request, MultipartFile model,
 			MultipartFile metadata, MultipartFile schema, MultipartFile license,MultipartFile rdata, String authorization,

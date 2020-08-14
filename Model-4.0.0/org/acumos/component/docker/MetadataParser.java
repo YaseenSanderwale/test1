@@ -16,6 +16,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * ===============LICENSE_END=========================================================
+ * Tag7.0.0
  */
 
 package org.acumos.onboarding.component.docker.preparation;
@@ -40,7 +41,7 @@ import com.github.fge.jsonschema.core.report.ProcessingReport;
 import com.github.fge.jsonschema.main.JsonSchemaFactory;
 
 public class MetadataParser {
-
+	//Tag7.0.0
 	private Metadata metadata;
 
 	private JsonNode metadataJson;
@@ -71,7 +72,7 @@ public class MetadataParser {
 			} else if (schemaVersion.contains("6")) {
 				schemafile = "/model-schema-0.6.0.json";
 			}
-
+			// Tag7.0.0
 			final JsonNode schema = JsonLoader.fromResource(schemafile);
 
 			final JsonSchemaFactory factory = JsonSchemaFactory.byDefault();
@@ -84,7 +85,7 @@ public class MetadataParser {
 				for (ProcessingMessage processingMessage : report) {
 					if (!processingMessage.getMessage()
 							.equals("the following keywords are unknown and will be ignored: [self]"))
-						sb.append(processingMessage.getMessage() + "\n");// Collect
+						sb.append(processingMessage.getMessage() + "\n");// Collect Tag7.0.0
 																			// all
 																			// message
 																			// and
@@ -104,7 +105,7 @@ public class MetadataParser {
 
 			modelName = modeldummy.replaceAll("\\s", "");
 
-			// validating Model-Name
+			// validating Model-Name Tag7.0.0
 			if (!modelName.matches("^[a-zA-Z0-9_-]*$")) {
 				logger.debug("Invalid Model name [Metadata Parsing]:"+modelName);
 				throw new AcumosServiceException(AcumosServiceException.ErrorCode.INVALID_PARAMETER,
@@ -213,7 +214,7 @@ public class MetadataParser {
 					"Fail to read input JSON", e);
 		}
 	}
-
+	//Tag7.0.0
 	public JsonNode getMetadataJson() {
 		return metadataJson;
 	}

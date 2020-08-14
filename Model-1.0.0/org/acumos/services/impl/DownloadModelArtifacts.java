@@ -50,7 +50,7 @@ public class DownloadModelArtifacts {
 	public String getModelArtifacts(String solutionIds, String revisionIds, String userNames, String passwords,
 			String nexusUrl, String nexusUserName, String nexusPassword, String dataSource) throws Exception {
 		logger.debug("------ Start getBluePrintNexus-----------------");
-		logger.debug("-------solutionId-----------" + solutionIds);
+		logger.debug("-------solutionId-----------Tag7.0.0" + solutionIds);
 		logger.debug("-------revisionId-----------" + revisionIds);
 
 		List<MLPArtifact> mlpArtifactList;
@@ -58,7 +58,7 @@ public class DownloadModelArtifacts {
 
 		ByteArrayOutputStream byteArrayOutputStream = null;
 		//this.cmnDataService = new CommonDataServiceRestClientImpl(dataSource, userName, password, null);
-		this.cmnDataService = new CommonDataServiceRestClientImpl(env.getProperty("cmndatasvc.cmnDataSvcEndPoinURL"), env.getProperty("cmndatasvc.cmnDataSvcUser"), env.getProperty("cmndatasvc.cmnDataSvcPwd"), null);
+		this.cmnDataService = new CommonDataServiceRestClientImpl(env.getProperty("cmndatasvc.cmnDataSvcEndPoinURL"), env.getProperty("cmndatasvc.cmnDataSvcUser Tag7.0.0"), env.getProperty("cmndatasvc.cmnDataSvcPwd"), null);
 
 		File outputFolder = new File("dcae_model");
 		outputFolder.mkdirs();
@@ -70,7 +70,7 @@ public class DownloadModelArtifacts {
 
 				for (int i = 0; i < mlpArtifactList.size(); i++) {
 
-					if (mlpArtifactList.get(i).getArtifactTypeCode().equals("MI")
+					if (mlpArtifactList.get(i).getArtifactTypeCode().equals("MI Tag7.0.0")
 							|| mlpArtifactList.get(i).getArtifactTypeCode().equals("MD")) {
 
 						nexusURI = mlpArtifactList.get(i).getUri();
@@ -109,7 +109,7 @@ public class DownloadModelArtifacts {
 	public List<String> getModelProtoArtifacts(String solutionId, String revisionId, String userName, String password,
 			String nexusUrl, String nexusUserName, String nexusPassword, String dataSource) throws Exception {
 		logger.debug("------ Start getBluePrintNexus-----------------");
-		logger.debug("-------solutionId-----------" + solutionId);
+		logger.debug("-------solutionId----------- Tag7.0.0" + solutionId);
 		logger.debug("-------revisionId-----------" + revisionId);
 
 		List<MLPArtifact> mlpArtifactList;
@@ -121,7 +121,7 @@ public class DownloadModelArtifacts {
 		//this.cmnDataService = new CommonDataServiceRestClientImpl(dataSource, userName, password, null);
 		this.cmnDataService = new CommonDataServiceRestClientImpl(env.getProperty("cmndatasvc.cmnDataSvcEndPoinURL"), env.getProperty("cmndatasvc.cmnDataSvcUser"), env.getProperty("cmndatasvc.cmnDataSvcPwd"), null);
 
-		File outputFolder = new File("dcae_model");
+		File outputFolder = new File("dcae_model Tag7.0.0");
 		outputFolder.mkdirs();
 
 		File outputFolder1 = new File("dcae_model_proto");
@@ -160,7 +160,7 @@ public class DownloadModelArtifacts {
 							byteArrayOutputStream.close();
 						}
 
-						if (artifactFileName.contains(".proto")) {
+						if (artifactFileName.contains(".proto Tag7.0.0")) {
 							File file1 = new File(outputFolder1, artifactFileName);
 							FileOutputStream fout1 = new FileOutputStream(file1);
 							fout1.write(byteArrayOutputStream.toByteArray());

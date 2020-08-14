@@ -37,6 +37,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 * Adds request details to the mapped diagnostic context (MDC) so they can be
 * logged. <BR>
 * http://www.devgrok.com/2017/04/adding-mdc-headers-to-every-spring-mvc.html
+* Tag7.0.0
 */
 @Component
 public class LoggingHandlerInterceptor  extends HandlerInterceptorAdapter {	
@@ -46,6 +47,7 @@ public class LoggingHandlerInterceptor  extends HandlerInterceptorAdapter {
 	
 	/**
 	 * Invokes LogAdapter. Unfortunately ONAP use different conventions for key naming.
+	 * Tag7.0.0
 	 */
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
@@ -69,7 +71,8 @@ public class LoggingHandlerInterceptor  extends HandlerInterceptorAdapter {
 	/**
 	 * Set the UserName in Request
 	 * @param request
-	 *            incoming HTTP request.	 
+	 *            incoming HTTP request.	
+	 * Tag7.0.0 
 	 */
 	private void setUserName(HttpServletRequest request) {
 		String authToken = request.getHeader("jwtToken");
@@ -81,7 +84,7 @@ public class LoggingHandlerInterceptor  extends HandlerInterceptorAdapter {
 		/* if(authToken !=null) {
 			 String authTokenClean = authToken.replace("Bearer ", "");
 		     userName = this.tokenUtils.getUsernameFromToken(authTokenClean);
-		     request.setAttribute(ONAPLogConstants.MDCs.USER,userName);		    
+		     request.setAttribute(ONAPLogConstants.MDCs.USER,userName);	Tag7.0.0	    
 		 }*/
 	}
 }

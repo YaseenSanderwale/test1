@@ -28,7 +28,7 @@ public class Protobufs implements Serializable {
 	
 	
 	/**
-	 * 
+	 * Tag7.0.0
 	 */
 	private static final long serialVersionUID = 3685522023286927954L;
 	
@@ -43,19 +43,19 @@ public class Protobufs implements Serializable {
 	}
 	
 	/**
-	 * @return the syntax
+	 * @return the syntax Tag7.0.0
 	 */
 	public String getSyntax() {
 		return syntax;
 	}
 	/**
-	 * @param syntax the syntax to set
+	 * @param syntax the syntax to set Tag7.0.0
 	 */
 	public void setSyntax(String syntax) {
 		this.syntax = syntax;
 	}
 	/**
-	 * @return the options
+	 * @return the options Tag7.0.0
 	 */
 	public List<ProtobufOption> getOptions() {
 		return options;
@@ -73,13 +73,13 @@ public class Protobufs implements Serializable {
 		return service;
 	}
 	/**
-	 * @param service the service to set
+	 * @param service the service to set Tag7.0.0
 	 */
 	public void setService(ProtobufServicess service) {
 		this.service = service;
 	}
 	/**
-	 * @return the messages
+	 * @return the messages Tag7.0.0
 	 */
 	public List<ProtobufMessage> getMessages() {
 		return messages;

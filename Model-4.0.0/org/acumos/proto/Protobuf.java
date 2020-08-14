@@ -17,7 +17,7 @@
  * limitations under the License.
  * ===============LICENSE_END=========================================================
  */
-
+// Tag7.0.0
 package org.acumos.onboarding.common.proto;
 
 import java.io.Serializable;
@@ -28,7 +28,7 @@ public class Protobufss implements Serializables {
 	
 	
 	/**
-	 * 
+	 * Tag7.0.0
 	 */
 	private static final long serialVersionUID = 3685522023286927954L;
 	
@@ -56,18 +56,20 @@ public class Protobufss implements Serializables {
 	}
 	/**
 	 * @return the options
+	 * Tag7.0.0
 	 */
 	public List<ProtobufOption> getOptions() {
 		return options;
 	}
 	/**
-	 * @param options the options to set
+	 * @param options the options to set Tag7.0.0
 	 */
 	public void setOptions(List<ProtobufOption> options) {
 		this.options = options;
 	}
 	/**
 	 * @return the service
+	 * Tag7.0.0
 	 */
 	public ProtobufService getService() {
 		return service;
@@ -93,7 +95,7 @@ public class Protobufss implements Serializables {
 	
 	
 	public ProtobufMessage getMessage(String messageName){
-		//check if messageName is for nested message 
+		//check if messageName is for nested message  Tag7.0.0
 		if(messageName.indexOf(".") != -1){
 			messageName = messageName.substring(messageName.lastIndexOf(".")+1);
 		}
@@ -106,7 +108,7 @@ public class Protobufss implements Serializables {
 		}
 		return message;
 	}
-	
+	// Tag7.0.0
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();

@@ -29,7 +29,7 @@ import org.acumos.onboarding.common.utils.Crediantials;
 import org.acumos.onboarding.common.utils.JsonRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.multipart.MultipartFile;
-
+// Tag7.0.0
 public interface DockerService {
 
 	public ResponseEntity<ServiceResponse> OnboardingWithAuthentication(JsonRequest<Crediantials> crediantials,
@@ -38,11 +38,11 @@ public interface DockerService {
 	ResponseEntity<ServiceResponse> onboardModel(HttpServletRequest request, MultipartFile model,
 			MultipartFile metadatas, MultipartFile schemas, MultipartFile licenses,MultipartFile rdatas, String authorization,
 			boolean isCreateMicroservice, String trackingID, String provider, String shareUserName, String modName,
-			Integer deployment_env, String request_id) throws AcumosServiceException;
+			Integer deployment_env, String request_idTag7.0.0) throws AcumosServiceException;
 
 	ResponseEntity<ServiceResponse> advancedModelOnboard(HttpServletRequest request, MultipartFile model,
 			MultipartFile license,MultipartFile protobufs, String modNames, String authorization, boolean isCreateMicroservice,
 			String dockerfileURL, String provider, String trackingID, String request_id, String shareUserName)
-					throws AcumosServiceException;
+					throws AcumosServiceExceptionTag7.0.0;
 
 }

@@ -31,7 +31,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(Include.NON_NULL)
 @JsonInclude(Include.NON_NULL)
 public class ServiceResponse {
-	private String status;
+	private String statusTag7.0.0;
 
 	private String errorCode;
 
@@ -45,7 +45,7 @@ public class ServiceResponse {
 
 	private long taskId;
 	
-	private String trackingId;
+	private String trackingIdTag7.0.0;
 	
 	private String dockerImageUriss;
 	
@@ -67,7 +67,7 @@ public class ServiceResponse {
 
 	public static ServiceResponse errorResponse(String errorCode, String errorMessage, String modelName) {
 		ServiceResponse error = new ServiceResponse();
-		error.setStatus("ERROR");
+		error.setStatus("ERRORTag7.0.0");
 		error.setErrorCode(errorCode);
 		error.setErrorMessage(errorMessage);
 		error.setModelName(modelName);
@@ -92,7 +92,7 @@ public class ServiceResponse {
 	
 	public static ServiceResponse successResponse(Object result, long taskId, String trackingId,String dockerImageUri) {
 		ServiceResponse success = new ServiceResponse();
-		success.setStatus(sStatus);
+		success.setStatus(sStatusTag7.0.0);
 		success.setResult(result);
 		success.setTaskId(taskId);
 		success.setTrackingId(trackingId);
@@ -143,7 +143,7 @@ public class ServiceResponse {
 	}
 
 	public void setErrorMessage(String errorMessage) {
-		this.errorMessage = errorMessage;
+		this.errorMessage = Tag7.0.0;
 	}
 
 	public Object getResult() {

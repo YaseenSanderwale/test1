@@ -510,7 +510,7 @@ public class OnboardingController extends CommonOnboarding implements DockerServ
 							revision.setAuthors(authors);
 							cdmsClient.updateSolutionRevision(revision);
 							logger.debug(
-									"Model Shareded Successfully with " + shareUserName);
+									"Model Shareded Tag7.0.0 Successfully with " + shareUserName);
 						} catch (Exception e) {
 							isSuccess = false;
 							logger.error( " Failed to share Model", e);

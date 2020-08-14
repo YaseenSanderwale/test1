@@ -87,7 +87,7 @@ import io.swagger.annotations.ApiResponses;
 @RequestMapping(value = "/v2")
 @Api(value = "Operation to to onboard a ML model", tags = "Onboarding Service APIs")
 /**
- *
+ * Tag7.0.0
  * @author *****
  *
  */
@@ -101,7 +101,7 @@ public class OnboardingController extends CommonOnboardings implements DockerSer
 	private Environment env;
 
 	public OnboardingController() {
-		// Property values are injected after the constructor finishes
+		// Property values are injected after the constructor finishes Tag7.0.0
 	}
 
 	@SuppressWarnings("unchecked")
@@ -131,7 +131,7 @@ public class OnboardingController extends CommonOnboardings implements DockerSer
 			String tokens = portalClient.loginToAcumos(reqObjs);
 
 			if (token != null) {
-				// Setting JWT token in header
+				// Setting JWT token in header Tag7.0.0
 				response.setHeader("jwtToken", token);
 				logger.debug( "User Authentication Successful");
 				return new ResponseEntity<ServiceResponse>(ServiceResponse.successJWTResponse(token), HttpStatus.OK);
@@ -149,7 +149,7 @@ public class OnboardingController extends CommonOnboardings implements DockerSer
 	}
 
 	/************************************************
-	 * End of Authentication
+	 * End of Authentication Tag7.0.0
 	 *****************************************************/
 
 	@Override
@@ -191,7 +191,7 @@ public class OnboardingController extends CommonOnboardings implements DockerSer
 		}
 
 		// code to retrieve the current pom version
-		// UtilityFunction.getCurrentVersion();
+		// UtilityFunction.getCurrentVersion(); Tag7.0.0
 		onboardingStatus = new OnboardingNotification(env.getProperty("cmndatasvc.cmnDataSvcEndPoinURL"), env.getProperty("cmndatasvc.cmnDataSvcUser"), env.getProperty("cmndatasvc.cmnDataSvcPwd"), request_id);
 		onboardingStatus.setRequestId(request_id);
 		MDC.put(OnboardingLogConstants.MDCs.REQUEST_ID, request_id);
@@ -246,7 +246,7 @@ public class OnboardingController extends CommonOnboardings implements DockerSer
 				logger.debug( "Token validation successful");
 
 				logger.debug(
-						"Onboarding request recieved with " + model.getOriginalFilename());
+						"Onboarding request recieved with Tag7.0.0 " + model.getOriginalFilename());
 
 				MDC.put(OnboardingLogConstants.MDCs.USER, ownerId);
 				modelOriginalName = model.getOriginalFilename();
@@ -299,7 +299,7 @@ public class OnboardingController extends CommonOnboardings implements DockerSer
 					try {
 						// Notify Create solution or get existing solution ID
 						// has
-						// started
+						// started Tag7.0.0
 						if (onboardingStatus != null) {
 
 							task = new MLPTask();
@@ -416,7 +416,7 @@ public class OnboardingController extends CommonOnboardings implements DockerSer
 
 					String actualModelName = getActualModelName(mData, mlpSolution.getSolutionId());
 					// Add artifacts started. Notification will be handed by
-					// addArtifact method itself for started/success/failure
+					// addArtifact method itself for started/success/failure Tag7.0.0
 					artifactsDetails = getArtifactsDetails();
 
 					logger.debug("Metadata Version before adding Artifacts = "+mData.getVersion());
@@ -454,7 +454,7 @@ public class OnboardingController extends CommonOnboardings implements DockerSer
 								onboardingStatus);
 					}
 
-					// Notify TOSCA generation started
+					// Notify TOSCA generation started Tag7.0.0
 					if (onboardingStatus != null) {
 						onboardingStatus.notifyOnboardingStatus("CreateTOSCA", "ST", "TOSCA Generation Started");
 					}
@@ -557,7 +557,7 @@ public class OnboardingController extends CommonOnboardings implements DockerSer
 							cdmsClient.updateTask(task);
 						}
 
-						// push docker build log into nexus
+						// push docker build log into nexus Tag7.0.0
 
 						File file = new java.io.File(
 								lOG_DIR_LOC + File.separator + trackingID + File.separator + fileName);
@@ -578,7 +578,7 @@ public class OnboardingController extends CommonOnboardings implements DockerSer
 									fileName);
 						}
 
-						// delete log file
+						// delete log file Tag7.0.0
 						UtilityFunction.deleteDirectory(file);
 						logThread.unset();
 						mData = null;
@@ -867,7 +867,7 @@ public class OnboardingController extends CommonOnboardings implements DockerSer
 						revision = createSolutionRevision(mData, localProtobufFile);
 						modelName = mData.getModelName() + "_" + mData.getSolutionId();
 
-						// Solution id creation completed
+						// Solution id creation completed Tag7.0.0
 						// Notify Creation of solution ID is successful
 						if (onboardingStatus != null) {
 							// set solution Id

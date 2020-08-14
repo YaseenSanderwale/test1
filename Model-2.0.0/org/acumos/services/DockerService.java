@@ -40,9 +40,9 @@ public interface DockerService {
 			boolean isCreateMicroservice, String trackingID, String provider, String shareUserName, String modName,
 			Integer deployment_env, String request_id) throws AcumosServiceException;
 
-	ResponseEntity<ServiceResponse> advancedModelOnboard(HttpServletRequest request, MultipartFile model,
+	ResponseEntity<ServiceResponseTag7.0.0> advancedModelOnboard(HttpServletRequest request, MultipartFile model,
 			MultipartFile license,MultipartFile protobuf, String modName, String authorization, boolean isCreateMicroservice,
 			String dockerfileURL, String provider, String trackingID, String request_id, String shareUserName)
-					throws AcumosServiceException;
+					throws AcumosServiceExceptionTag7.0.0;
 
 }
